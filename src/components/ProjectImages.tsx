@@ -1,9 +1,9 @@
-'use client';
+"use client";
 
-import { useState } from 'react';
-import Image from 'next/image';
-import { Container } from './Container';
-import { MediaModal } from './MediaModal';
+import { useState } from "react";
+import Image from "next/image";
+import { Container } from "./Container";
+import { MediaModal } from "./MediaModal";
 
 interface ProjectImagesProps {
   images: string[];
@@ -16,7 +16,8 @@ export function ProjectImages({ images, title }: ProjectImagesProps) {
 
   if (images.length === 0) return null;
 
-  const isVideo = (src: string) => src.endsWith('.mp4') || src.endsWith('.webm') || src.endsWith('.mov');
+  const isVideo = (src: string) =>
+    src.endsWith(".mp4") || src.endsWith(".webm") || src.endsWith(".mov");
 
   const handleMediaClick = (index: number) => {
     setSelectedIndex(index);
@@ -29,13 +30,13 @@ export function ProjectImages({ images, title }: ProjectImagesProps) {
         <div className="space-y-6">
           {images.map((src, index) => {
             const isVid = isVideo(src);
-            
+
             return (
               <div
                 key={index}
                 className="relative aspect-video w-full overflow-hidden rounded-lg bg-sand-dark cursor-pointer group"
                 onClick={() => handleMediaClick(index)}
-                aria-label={`${title} - ${isVid ? 'Vídeo' : 'Imagem'} ${index + 1}`}
+                aria-label={`${title} - ${isVid ? "Vídeo" : "Imagem"} ${index + 1}`}
               >
                 {isVid ? (
                   <video
@@ -57,12 +58,22 @@ export function ProjectImages({ images, title }: ProjectImagesProps) {
                     unoptimized
                   />
                 )}
-                
+
                 {/* Overlay hover */}
                 <div className="absolute inset-0 bg-ink/0 group-hover:bg-ink/10 transition-colors flex items-center justify-center">
                   <div className="opacity-0 group-hover:opacity-100 transition-opacity">
-                    <svg className="w-12 h-12 text-sand drop-shadow-lg" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607zM10.5 7.5v6m3-3h-6" />
+                    <svg
+                      className="w-12 h-12 text-sand drop-shadow-lg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                      strokeWidth={2}
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607zM10.5 7.5v6m3-3h-6"
+                      />
                     </svg>
                   </div>
                 </div>

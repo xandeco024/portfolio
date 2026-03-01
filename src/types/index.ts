@@ -1,4 +1,4 @@
-export type ProjectCategory = 'digital' | 'physical';
+export type ProjectCategory = "digital" | "physical";
 
 export interface ProjectLinks {
   github?: string;
@@ -39,8 +39,8 @@ export interface SecondaryProject {
   slug: string;
   title: string;
   description: string;
-  category: 'woodwork' | 'agroforest' | 'other';
+  category: "woodwork" | "agroforest" | "other";
   tools?: string[];
   images: string[];
-  status?: 'em-progresso' | 'completo';
+  status?: "em-progresso" | "completo";
 }

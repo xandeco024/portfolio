@@ -1,7 +1,7 @@
-'use client';
+"use client";
 
-import { useEffect, useState } from 'react';
-import Image from 'next/image';
+import { useEffect, useState } from "react";
+import Image from "next/image";
 
 interface MediaModalProps {
   media: string[];
@@ -11,7 +11,13 @@ interface MediaModalProps {
   title?: string;
 }
 
-export function MediaModal({ media, initialIndex = 0, isOpen, onClose, title }: MediaModalProps) {
+export function MediaModal({
+  media,
+  initialIndex = 0,
+  isOpen,
+  onClose,
+  title,
+}: MediaModalProps) {
   const [currentIndex, setCurrentIndex] = useState(initialIndex);
   const totalMedia = media.length;
 
@@ -23,17 +29,17 @@ export function MediaModal({ media, initialIndex = 0, isOpen, onClose, title }: 
     if (!isOpen) return;
 
     const handleEscape = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') onClose();
-      if (e.key === 'ArrowLeft') prevMedia();
-      if (e.key === 'ArrowRight') nextMedia();
+      if (e.key === "Escape") onClose();
+      if (e.key === "ArrowLeft") prevMedia();
+      if (e.key === "ArrowRight") nextMedia();
     };
 
-    document.addEventListener('keydown', handleEscape);
-    document.body.style.overflow = 'hidden';
+    document.addEventListener("keydown", handleEscape);
+    document.body.style.overflow = "hidden";
 
     return () => {
-      document.removeEventListener('keydown', handleEscape);
-      document.body.style.overflow = 'unset';
+      document.removeEventListener("keydown", handleEscape);
+      document.body.style.overflow = "unset";
     };
   }, [isOpen, currentIndex]);
 
@@ -45,7 +51,8 @@ export function MediaModal({ media, initialIndex = 0, isOpen, onClose, title }: 
     setCurrentIndex((prev) => (prev - 1 + totalMedia) % totalMedia);
   };
 
-  const isVideo = (src: string) => src.endsWith('.mp4') || src.endsWith('.webm') || src.endsWith('.mov');
+  const isVideo = (src: string) =>
+    src.endsWith(".mp4") || src.endsWith(".webm") || src.endsWith(".mov");
 
   if (!isOpen) return null;
 
@@ -75,8 +82,18 @@ export function MediaModal({ media, initialIndex = 0, isOpen, onClose, title }: 
             className="w-10 h-10 flex items-center justify-center text-sand hover:text-sand/80 transition-colors"
             aria-label="Fechar modal"
           >
-            <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-              <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+            <svg
+              className="w-6 h-6"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              strokeWidth={2}
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M6 18L18 6M6 6l12 12"
+              />
             </svg>
           </button>
         </div>
@@ -100,7 +117,7 @@ export function MediaModal({ media, initialIndex = 0, isOpen, onClose, title }: 
             ) : (
               <Image
                 src={currentMedia}
-                alt={`${title || 'Mídia'} - ${currentIndex + 1}`}
+                alt={`${title || "Mídia"} - ${currentIndex + 1}`}
                 fill
                 className="object-contain"
                 sizes="90vw"
@@ -121,8 +138,18 @@ export function MediaModal({ media, initialIndex = 0, isOpen, onClose, title }: 
                 className="absolute left-4 top-1/2 -translate-y-1/2 w-12 h-12 flex items-center justify-center text-sand hover:scale-110 transition-transform drop-shadow-lg"
                 aria-label="Mídia anterior"
               >
-                <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
+                <svg
+                  className="w-8 h-8"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  strokeWidth={2.5}
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M15 19l-7-7 7-7"
+                  />
                 </svg>
               </button>
               <button
@@ -133,8 +160,18 @@ export function MediaModal({ media, initialIndex = 0, isOpen, onClose, title }: 
                 className="absolute right-4 top-1/2 -translate-y-1/2 w-12 h-12 flex items-center justify-center text-sand hover:scale-110 transition-transform drop-shadow-lg"
                 aria-label="Próxima mídia"
               >
-                <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+                <svg
+                  className="w-8 h-8"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  strokeWidth={2.5}
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M9 5l7 7-7 7"
+                  />
                 </svg>
               </button>
             </>
@@ -155,11 +192,11 @@ export function MediaModal({ media, initialIndex = 0, isOpen, onClose, title }: 
                   }}
                   className={`h-2 rounded-full transition-all relative ${
                     index === currentIndex
-                      ? 'bg-sand w-8'
-                      : 'bg-sand/30 w-2 hover:bg-sand/50'
+                      ? "bg-sand w-8"
+                      : "bg-sand/30 w-2 hover:bg-sand/50"
                   }`}
-                  aria-label={`Ir para ${isVid ? 'vídeo' : 'imagem'} ${index + 1}`}
-                  title={isVid ? 'Vídeo' : 'Imagem'}
+                  aria-label={`Ir para ${isVid ? "vídeo" : "imagem"} ${index + 1}`}
+                  title={isVid ? "Vídeo" : "Imagem"}
                 />
               );
             })}

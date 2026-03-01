@@ -1,7 +1,7 @@
-import { SecondaryProject } from '@/types';
-import { Container } from './Container';
-import { Section, SectionTitle } from './Section';
-import { SecondaryProjectCard } from './SecondaryProjectCard';
+import { SecondaryProject } from "@/types";
+import { Container } from "./Container";
+import { Section, SectionTitle } from "./Section";
+import { SecondaryProjectCard } from "./SecondaryProjectCard";
 
 interface SecondaryProjectGridProps {
   title: string;
@@ -9,7 +9,11 @@ interface SecondaryProjectGridProps {
   id?: string;
 }
 
-export function SecondaryProjectGrid({ title, projects, id }: SecondaryProjectGridProps) {
+export function SecondaryProjectGrid({
+  title,
+  projects,
+  id,
+}: SecondaryProjectGridProps) {
   if (projects.length === 0) return null;
 
   return (

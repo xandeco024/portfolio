@@ -1,9 +1,9 @@
-'use client';
+"use client";
 
-import { useState } from 'react';
-import Image from 'next/image';
-import { SecondaryProject } from '@/types';
-import { ImageModal } from './ImageModal';
+import { useState } from "react";
+import Image from "next/image";
+import { SecondaryProject } from "@/types";
+import { ImageModal } from "./ImageModal";
 
 interface SecondaryProjectCardProps {
   project: SecondaryProject;
@@ -24,7 +24,7 @@ export function SecondaryProjectCard({ project }: SecondaryProjectCardProps) {
 
   return (
     <div className="group">
-      <div 
+      <div
         className="relative aspect-4/3 w-full overflow-hidden rounded-lg bg-sand-dark mb-4 cursor-pointer"
         onClick={() => setIsModalOpen(true)}
       >
@@ -38,7 +38,7 @@ export function SecondaryProjectCard({ project }: SecondaryProjectCardProps) {
         />
 
         {/* Status badge */}
-        {project.status === 'em-progresso' && (
+        {project.status === "em-progresso" && (
           <div className="absolute top-3 right-3 px-3 py-1 bg-ink text-sand text-xs font-medium rounded-full">
             Em progresso
           </div>
@@ -55,8 +55,18 @@ export function SecondaryProjectCard({ project }: SecondaryProjectCardProps) {
               className="absolute left-2 top-1/2 -translate-y-1/2 w-8 h-8 flex items-center justify-center text-sand opacity-0 group-hover:opacity-100 transition-opacity hover:scale-110 drop-shadow-lg"
               aria-label="Imagem anterior"
             >
-              <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
-                <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
+              <svg
+                className="w-6 h-6"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                strokeWidth={2.5}
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M15 19l-7-7 7-7"
+                />
               </svg>
             </button>
             <button
@@ -67,8 +77,18 @@ export function SecondaryProjectCard({ project }: SecondaryProjectCardProps) {
               className="absolute right-2 top-1/2 -translate-y-1/2 w-8 h-8 flex items-center justify-center text-sand opacity-0 group-hover:opacity-100 transition-opacity hover:scale-110 drop-shadow-lg"
               aria-label="Próxima imagem"
             >
-              <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
-                <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+              <svg
+                className="w-6 h-6"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                strokeWidth={2.5}
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M9 5l7 7-7 7"
+                />
               </svg>
             </button>
 
@@ -83,8 +103,8 @@ export function SecondaryProjectCard({ project }: SecondaryProjectCardProps) {
                   }}
                   className={`w-1.5 h-1.5 rounded-full transition-all ${
                     index === currentIndex
-                      ? 'bg-sand w-3'
-                      : 'bg-sand/50 hover:bg-sand/75'
+                      ? "bg-sand w-3"
+                      : "bg-sand/50 hover:bg-sand/75"
                   }`}
                   aria-label={`Ir para imagem ${index + 1}`}
                 />
@@ -94,9 +114,7 @@ export function SecondaryProjectCard({ project }: SecondaryProjectCardProps) {
         )}
       </div>
 
-      <h3 className="text-xl font-medium text-ink mb-2">
-        {project.title}
-      </h3>
+      <h3 className="text-xl font-medium text-ink mb-2">{project.title}</h3>
 
       <p className="text-sm text-ink-soft mb-3 leading-relaxed">
         {project.description}

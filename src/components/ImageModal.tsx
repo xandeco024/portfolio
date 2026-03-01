@@ -1,7 +1,7 @@
-'use client';
+"use client";
 
-import { useEffect, useState } from 'react';
-import Image from 'next/image';
+import { useEffect, useState } from "react";
+import Image from "next/image";
 
 interface ImageModalProps {
   images: string[];
@@ -11,7 +11,13 @@ interface ImageModalProps {
   title?: string;
 }
 
-export function ImageModal({ images, initialIndex = 0, isOpen, onClose, title }: ImageModalProps) {
+export function ImageModal({
+  images,
+  initialIndex = 0,
+  isOpen,
+  onClose,
+  title,
+}: ImageModalProps) {
   const [currentIndex, setCurrentIndex] = useState(initialIndex);
   const totalImages = images.length;
 
@@ -23,17 +29,17 @@ export function ImageModal({ images, initialIndex = 0, isOpen, onClose, title }:
     if (!isOpen) return;
 
     const handleEscape = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') onClose();
-      if (e.key === 'ArrowLeft') prevImage();
-      if (e.key === 'ArrowRight') nextImage();
+      if (e.key === "Escape") onClose();
+      if (e.key === "ArrowLeft") prevImage();
+      if (e.key === "ArrowRight") nextImage();
     };
 
-    document.addEventListener('keydown', handleEscape);
-    document.body.style.overflow = 'hidden';
+    document.addEventListener("keydown", handleEscape);
+    document.body.style.overflow = "hidden";
 
     return () => {
-      document.removeEventListener('keydown', handleEscape);
-      document.body.style.overflow = 'unset';
+      document.removeEventListener("keydown", handleEscape);
+      document.body.style.overflow = "unset";
     };
   }, [isOpen, currentIndex]);
 
@@ -57,7 +63,9 @@ export function ImageModal({ images, initialIndex = 0, isOpen, onClose, title }:
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-3">
             {title && (
-              <h3 className="text-lg font-medium text-ink dark:text-sand">{title}</h3>
+              <h3 className="text-lg font-medium text-ink dark:text-sand">
+                {title}
+              </h3>
             )}
             {totalImages > 1 && (
               <span className="text-sm text-ink-soft dark:text-sand/70">
@@ -70,8 +78,18 @@ export function ImageModal({ images, initialIndex = 0, isOpen, onClose, title }:
             className="w-10 h-10 flex items-center justify-center text-ink dark:text-sand hover:text-ink-soft dark:hover:text-sand/80 transition-colors"
             aria-label="Fechar modal"
           >
-            <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-              <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+            <svg
+              className="w-6 h-6"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              strokeWidth={2}
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M6 18L18 6M6 6l12 12"
+              />
             </svg>
           </button>
         </div>
@@ -84,7 +102,7 @@ export function ImageModal({ images, initialIndex = 0, isOpen, onClose, title }:
           <div className="relative w-full h-full">
             <Image
               src={images[currentIndex]}
-              alt={`${title || 'Imagem'} - ${currentIndex + 1}`}
+              alt={`${title || "Imagem"} - ${currentIndex + 1}`}
               fill
               className="object-contain"
               sizes="90vw"
@@ -104,8 +122,18 @@ export function ImageModal({ images, initialIndex = 0, isOpen, onClose, title }:
                 className="absolute left-4 top-1/2 -translate-y-1/2 w-12 h-12 flex items-center justify-center text-ink dark:text-sand hover:scale-110 transition-transform drop-shadow-lg"
                 aria-label="Imagem anterior"
               >
-                <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
+                <svg
+                  className="w-8 h-8"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  strokeWidth={2.5}
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M15 19l-7-7 7-7"
+                  />
                 </svg>
               </button>
               <button
@@ -116,8 +144,18 @@ export function ImageModal({ images, initialIndex = 0, isOpen, onClose, title }:
                 className="absolute right-4 top-1/2 -translate-y-1/2 w-12 h-12 flex items-center justify-center text-ink dark:text-sand hover:scale-110 transition-transform drop-shadow-lg"
                 aria-label="Próxima imagem"
               >
-                <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+                <svg
+                  className="w-8 h-8"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  strokeWidth={2.5}
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M9 5l7 7-7 7"
+                  />
                 </svg>
               </button>
             </>
@@ -136,8 +174,8 @@ export function ImageModal({ images, initialIndex = 0, isOpen, onClose, title }:
                 }}
                 className={`h-2 rounded-full transition-all ${
                   index === currentIndex
-                    ? 'bg-ink dark:bg-sand w-8'
-                    : 'bg-ink/30 dark:bg-sand/30 w-2 hover:bg-ink/50 dark:hover:bg-sand/50'
+                    ? "bg-ink dark:bg-sand w-8"
+                    : "bg-ink/30 dark:bg-sand/30 w-2 hover:bg-ink/50 dark:hover:bg-sand/50"
                 }`}
                 aria-label={`Ir para imagem ${index + 1}`}
               />
