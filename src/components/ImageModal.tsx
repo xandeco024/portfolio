@@ -55,7 +55,8 @@ export function ImageModal({
 
   return (
     <div
-      className="fixed inset-0 z-50 flex items-center justify-center bg-sand/95 dark:bg-ink/95 p-4"
+      className="fixed inset-0 z-50 flex items-center justify-center p-4"
+      style={{ backgroundColor: "color-mix(in srgb, var(--color-sand) 95%, transparent)" }}
       onClick={onClose}
     >
       <div className="relative w-full max-w-6xl flex flex-col gap-4">
@@ -63,19 +64,20 @@ export function ImageModal({
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-3">
             {title && (
-              <h3 className="text-lg font-medium text-ink dark:text-sand">
+              <h3 className="text-lg font-medium text-ink">
                 {title}
               </h3>
             )}
             {totalImages > 1 && (
-              <span className="text-sm text-ink-soft dark:text-sand/70">
+              <span className="text-sm text-ink-soft">
                 {currentIndex + 1} / {totalImages}
               </span>
             )}
           </div>
           <button
+            type="button"
             onClick={onClose}
-            className="w-10 h-10 flex items-center justify-center text-ink dark:text-sand hover:text-ink-soft dark:hover:text-sand/80 transition-colors"
+            className="w-10 h-10 flex items-center justify-center text-ink hover:text-ink-soft transition-colors"
             aria-label="Fechar modal"
           >
             <svg
@@ -115,11 +117,12 @@ export function ImageModal({
           {totalImages > 1 && (
             <>
               <button
+                type="button"
                 onClick={(e) => {
                   e.stopPropagation();
                   prevImage();
                 }}
-                className="absolute left-4 top-1/2 -translate-y-1/2 w-12 h-12 flex items-center justify-center text-ink dark:text-sand hover:scale-110 transition-transform drop-shadow-lg"
+                className="absolute left-4 top-1/2 -translate-y-1/2 w-12 h-12 flex items-center justify-center text-ink hover:scale-110 transition-transform drop-shadow-lg"
                 aria-label="Imagem anterior"
               >
                 <svg
@@ -137,12 +140,13 @@ export function ImageModal({
                 </svg>
               </button>
               <button
+                type="button"
                 onClick={(e) => {
                   e.stopPropagation();
                   nextImage();
                 }}
-                className="absolute right-4 top-1/2 -translate-y-1/2 w-12 h-12 flex items-center justify-center text-ink dark:text-sand hover:scale-110 transition-transform drop-shadow-lg"
-                aria-label="Próxima imagem"
+                className="absolute right-4 top-1/2 -translate-y-1/2 w-12 h-12 flex items-center justify-center text-ink hover:scale-110 transition-transform drop-shadow-lg"
+                aria-label="Proxima imagem"
               >
                 <svg
                   className="w-8 h-8"
@@ -167,6 +171,7 @@ export function ImageModal({
           <div className="flex justify-center gap-2">
             {images.map((_, index) => (
               <button
+                type="button"
                 key={index}
                 onClick={(e) => {
                   e.stopPropagation();
@@ -174,8 +179,8 @@ export function ImageModal({
                 }}
                 className={`h-2 rounded-full transition-all ${
                   index === currentIndex
-                    ? "bg-ink dark:bg-sand w-8"
-                    : "bg-ink/30 dark:bg-sand/30 w-2 hover:bg-ink/50 dark:hover:bg-sand/50"
+                    ? "bg-ink w-8"
+                    : "bg-ink/30 w-2 hover:bg-ink/50"
                 }`}
                 aria-label={`Ir para imagem ${index + 1}`}
               />

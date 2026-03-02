@@ -3,7 +3,7 @@
 import { useState } from "react";
 import Image from "next/image";
 import { SecondaryProject } from "@/types";
-import { ImageModal } from "./ImageModal";
+import { ProjectViewModal } from "./ProjectViewModal";
 
 interface SecondaryProjectCardProps {
   project: SecondaryProject;
@@ -25,7 +25,7 @@ export function SecondaryProjectCard({ project }: SecondaryProjectCardProps) {
   return (
     <div className="group">
       <div
-        className="relative aspect-4/3 w-full overflow-hidden rounded-lg bg-sand-dark mb-4 cursor-pointer"
+        className="relative aspect-4/3 w-full overflow-hidden rounded-lg bg-sand-dark mb-3 cursor-pointer"
         onClick={() => setIsModalOpen(true)}
       >
         <Image
@@ -48,6 +48,7 @@ export function SecondaryProjectCard({ project }: SecondaryProjectCardProps) {
         {totalImages > 1 && (
           <>
             <button
+              type="button"
               onClick={(e) => {
                 e.stopPropagation();
                 prevImage();
@@ -70,12 +71,13 @@ export function SecondaryProjectCard({ project }: SecondaryProjectCardProps) {
               </svg>
             </button>
             <button
+              type="button"
               onClick={(e) => {
                 e.stopPropagation();
                 nextImage();
               }}
               className="absolute right-2 top-1/2 -translate-y-1/2 w-8 h-8 flex items-center justify-center text-sand opacity-0 group-hover:opacity-100 transition-opacity hover:scale-110 drop-shadow-lg"
-              aria-label="Próxima imagem"
+              aria-label="Proxima imagem"
             >
               <svg
                 className="w-6 h-6"
@@ -96,6 +98,7 @@ export function SecondaryProjectCard({ project }: SecondaryProjectCardProps) {
             <div className="absolute bottom-3 left-1/2 -translate-x-1/2 flex gap-1.5">
               {project.images.map((_, index) => (
                 <button
+                  type="button"
                   key={index}
                   onClick={(e) => {
                     e.stopPropagation();
@@ -114,18 +117,20 @@ export function SecondaryProjectCard({ project }: SecondaryProjectCardProps) {
         )}
       </div>
 
-      <h3 className="text-xl font-medium text-ink mb-2">{project.title}</h3>
-
-      <p className="text-sm text-ink-soft mb-3 leading-relaxed">
-        {project.description}
-      </p>
+      <h3 className="text-lg font-medium text-ink">{project.title}</h3>
 
       {project.tools && project.tools.length > 0 && (
-        <div className="flex flex-wrap gap-2">
+        <div className="mt-2 flex flex-wrap gap-2">
           {project.tools.map((tool) => (
             <span
               key={tool}
-              className="px-2 py-1 text-xs font-medium text-ink-muted bg-sand-dark rounded-full"
+              className={`px-2 py-1 text-xs font-medium rounded-full ${
+                project.category === "agroforest"
+                  ? "text-green bg-green/10"
+                  : project.category === "woodwork"
+                    ? "text-purple bg-purple/10"
+                    : "text-ink-muted bg-sand-dark"
+              }`}
             >
               {tool}
             </span>
@@ -133,12 +138,11 @@ export function SecondaryProjectCard({ project }: SecondaryProjectCardProps) {
         </div>
       )}
 
-      <ImageModal
-        images={project.images}
+      <ProjectViewModal
+        project={project}
         initialIndex={currentIndex}
         isOpen={isModalOpen}
         onClose={() => setIsModalOpen(false)}
-        title={project.title}
       />
     </div>
   );

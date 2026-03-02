@@ -34,7 +34,7 @@ export function ProjectCarousel({ title, projects, id }: ProjectCarouselProps) {
     <div className="bg-sand-dark py-20 md:py-24">
       <Section id={id} className="py-0!">
         <div className="px-4 md:px-8 lg:px-16 max-w-400 mx-auto">
-          <SectionTitle>{title}</SectionTitle>
+          <SectionTitle className="lg:ml-18">{title}</SectionTitle>
 
           <div className="flex items-center gap-4">
             {projects.length > 1 && (
@@ -91,7 +91,7 @@ export function ProjectCarousel({ title, projects, id }: ProjectCarouselProps) {
                 <div className="mt-8 flex flex-wrap items-center gap-4">
                   <Link
                     href={`/projetos/${project.slug}`}
-                    className="inline-flex items-center gap-2 text-ink hover:text-ink-soft transition-colors"
+                    className="inline-flex items-center gap-2 text-ink hover:text-green transition-colors"
                   >
                     <span>Ver detalhes</span>
                     <svg
@@ -114,7 +114,7 @@ export function ProjectCarousel({ title, projects, id }: ProjectCarouselProps) {
                       href={project.links.live}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 text-ink-muted hover:text-ink transition-colors"
+                      className="inline-flex items-center gap-2 text-ink-muted hover:text-purple transition-colors"
                     >
                       <svg
                         className="w-4 h-4"
@@ -138,7 +138,7 @@ export function ProjectCarousel({ title, projects, id }: ProjectCarouselProps) {
                       href={project.links.github}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 text-ink-muted hover:text-ink transition-colors"
+                      className="inline-flex items-center gap-2 text-ink-muted hover:text-purple transition-colors"
                     >
                       <svg
                         className="w-4 h-4"
@@ -166,35 +166,16 @@ export function ProjectCarousel({ title, projects, id }: ProjectCarouselProps) {
               {hasImage && (
                 <div className="lg:w-1/2 order-1 lg:order-2">
                   <div
-                    className="relative aspect-4/3 w-full overflow-hidden rounded-2xl cursor-pointer group"
+                    className="relative aspect-4/3 w-full overflow-hidden rounded-2xl cursor-pointer"
                     onClick={() => setIsModalOpen(true)}
                   >
                     <Image
                       src={project.images[0]}
                       alt={project.title}
                       fill
-                      className="object-contain transition-transform duration-300 group-hover:scale-105"
+                      className="object-contain"
                       sizes="(max-width: 1024px) 100vw, 50vw"
                     />
-
-                    {/* Overlay hover */}
-                    <div className="absolute inset-0 bg-ink/0 group-hover:bg-ink/10 transition-colors flex items-center justify-center">
-                      <div className="opacity-0 group-hover:opacity-100 transition-opacity">
-                        <svg
-                          className="w-12 h-12 text-ink drop-shadow-lg"
-                          fill="none"
-                          viewBox="0 0 24 24"
-                          stroke="currentColor"
-                          strokeWidth={2}
-                        >
-                          <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607zM10.5 7.5v6m3-3h-6"
-                          />
-                        </svg>
-                      </div>
-                    </div>
                   </div>
                 </div>
               )}

@@ -11,6 +11,7 @@ export { SecondaryProjectCard } from "./SecondaryProjectCard";
 export { SecondaryProjectGrid } from "./SecondaryProjectGrid";
 export { ImageModal } from "./ImageModal";
 export { MediaModal } from "./MediaModal";
+export { ProjectViewModal } from "./ProjectViewModal";
 export { Contact } from "./Contact";
 export { Footer } from "./Footer";
 export { ProjectHeader } from "./ProjectHeader";

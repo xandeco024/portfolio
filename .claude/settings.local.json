@@ -4,7 +4,8 @@
       "Bash(npm run build:*)",
       "Bash(dir:*)",
       "Bash(findstr:*)",
-      "Bash(find:*)"
+      "Bash(find:*)",
+      "Bash(del nul)"
     ],
     "deny": [],
     "ask": []

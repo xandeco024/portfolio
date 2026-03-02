@@ -46,4 +46,24 @@ export const secondaryProjects: SecondaryProject[] = [
     images: ["/secondary/a3.jpg", "/secondary/a2.jpg", "/secondary/a1.jpg"],
     status: "completo",
   },
+  {
+    slug: "miniagrofloresta",
+    title: "Miniagrofloresta",
+    description:
+      "Uma horta baseada em diversidade, simbiose e o sonho da autossuficiência. Um pequeno sistema vivo voltado para equilibrio, saude e autonomia. Cultivar me ensinou algo simples: sistemas funcionam melhor quando cooperam.",
+    category: "agroforest",
+    tools: ["Design agroflorestal", "Compostagem", "Consorcio de especies"],
+    images: ["/secondary/ho1.jpg"],
+    status: "em-progresso",
+  },
+  {
+    slug: "cama-armario",
+    title: "Cama-Armario",
+    description:
+      "Movel multifuncional sob medida unindo cama e armario. Criei este movel para liberar espaco para yoga no quarto. Estrutura em Saligna para resistencia, Pinus nas partes visiveis para estetica, acabamento em verniz acetinado. Mais do que um movel: experiencia pratica em design, engenharia e otimizacao de espaco.",
+    category: "woodwork",
+    tools: ["Marcenaria", "Saligna", "Pinus", "Verniz acetinado"],
+    images: ["/secondary/sc1.jpg"],
+    status: "em-progresso",
+  },
 ];

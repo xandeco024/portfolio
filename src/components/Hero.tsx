@@ -10,8 +10,8 @@ export function Hero() {
         <h1 className="mt-4 text-5xl font-medium tracking-tight text-ink md:text-7xl">
           Xand
         </h1>
-        <p className="mt-6 max-w-md text-lg leading-relaxed text-ink-soft md:text-xl">
-          Crio coisas que funcionam - digitais ou fisicas
+        <p className="mt-6 max-w-2xl text-lg leading-relaxed text-ink-soft md:text-xl">
+          Crio coisas que funcionam - digitais, fisicas ou vivas
           <br />
           <span className="text-ink-muted"> Menos, mas com propósito</span>
         </p>

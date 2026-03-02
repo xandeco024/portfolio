@@ -8,7 +8,7 @@ export function Header() {
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-sand/90 backdrop-blur-md border-b border-ink-muted/10">
-      <div className="max-w-3xl mx-auto px-6 py-4 flex items-center justify-between">
+      <div className="max-w-5xl mx-auto px-6 py-4 flex items-center justify-between">
         <Link
           href="/"
           className="text-ink font-medium tracking-tight hover:opacity-60 transition-opacity"
